@@ -39,15 +39,15 @@ ON `degrees`.`id` = `courses`.`degree_id`
 JOIN `course_teacher`
 ON `courses`.`id` = `course_teacher`.`course_id`
 JOIN `teachers`
-ON `teachers`.`id` = `courses_teacher`.`teacher_id`;
+ON `teachers`.`id` = `course_teacher`.`teacher_id`;
 
 
 -- 6. Selezionare tutti i docenti che insegnano nel Dipartimento di Matematica (54)
-SELECT `teachers`.`name`, `teachers`.`surname` , `departments`.`name`
+SELECT `teachers`.`name` AS `teachers_name`, `teachers`.`surname` , `departments`.`name` AS `departments_name`
 FROM `teachers`
 JOIN `course_teacher`
-ON `teachers`.`id` = `courses.teacher`.`teacher_id`
-JOIN `coursesr`
+ON `teachers`.`id` = `course_teacher`.`teacher_id`
+JOIN `courses`
 ON `courses`.`id` = `course_teacher`.`course_id`
 JOIN `degrees`
 ON `degrees`.`id` = `courses`.`degree_id`
